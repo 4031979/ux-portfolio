@@ -21,13 +21,15 @@ const WorkPage = () => {
       },
       { threshold: 0.1 }
     );
-
-    projectsRef.current.forEach((project) => {
+  
+    const projects = projectsRef.current;
+  
+    projects.forEach((project) => {
       if (project) observer.observe(project);
     });
-
+  
     return () => {
-      projectsRef.current.forEach((project) => {
+      projects.forEach((project) => {
         if (project) observer.unobserve(project);
       });
     };

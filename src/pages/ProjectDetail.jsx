@@ -5,7 +5,6 @@ import ProtectionUX from '../assets/Nozomi-UX-3.png'
 import DetailPage from '../assets/process-03.png'
 import DropdownNozomi from '../assets/Nozomi-dropdown.png'
 import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
-import nozomiMobile from '../assets/mobile-04.png';
 import nozomiInstall1 from '../assets/install-01.png';
 import nozomiInstall2 from '../assets/install-02.png';
 import nozomiInstall4 from '../assets/install-04.png';
