@@ -96,7 +96,7 @@
   .chat-header .status {
     margin: 0;
     font-size: 0.75rem;
-    color: #d4ff00;
+    color:var(--text-color);
     margin-top: 0.25rem;
   }
   

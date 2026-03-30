@@ -13,7 +13,7 @@ const PasswordProtected = ({ children, projectId }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = sessionStorage.getItem(`project_${projectId}_token`);
+    const token = sessionStorage.getItem('portfolio_authenticated');
     if (token) setIsAuthenticated(true);
   }, [projectId]);
 
@@ -30,13 +30,11 @@ const PasswordProtected = ({ children, projectId }) => {
           p_project_id: String(projectId),
           p_password: password,
         });
-    
-      console.log('data:', data, 'error:', dbError); // ← qui, dopo la parentesi graffa
-    
+
       if (dbError) throw dbError;
 
       if (data === true) {
-        sessionStorage.setItem(`project_${projectId}_token`, 'authenticated');
+        sessionStorage.setItem('portfolio_authenticated', 'authenticated');
         setIsAuthenticated(true);
       } else {
         setError('Incorrect password. Please try again.');

@@ -12,7 +12,7 @@ const skills = {
 
 const stats = [
   { value: '15+', label: 'Years of experience' },
-  { value: '20+', label: 'Projects delivered' },
+  { value: '70+', label: 'Projects delivered' },
   { value: '3', label: 'Countries worked in' },
 ];
 
@@ -31,20 +31,20 @@ const AboutPage = () => {
       <section className="about-hero">
         <div className="about-photo-wrap">
           <img src={profilePhoto} alt="Davide Gomiero" className="about-photo" />
-          <div className="about-photo-tag">Design Engineer · Milan</div>
+          <div className="about-photo-tag">Product Designer · Milan</div>
         </div>
 
         <div className="about-bio">
           <p className="firstSentence">
-            Design Engineer with 15+ years at the intersection of UX strategy, UI craft, and frontend development.
+            Product Designer with 15+ years at the intersection of UX strategy, UI craft, and frontend development.
           </p>
           <p>
           I am a product designer with a decade-plus track record of blending communication design with frontend expertise. My career began in the world of data and marketing, which continues to fuel my obsession with user behavior and evidence-based design. Whether I’m building a design system from scratch or conducting deep-dive user research, I focus on creating products that are functional, scalable, and human-centric.
           </p>
           <div className="about-actions">
-            <a href="/path-to-resume.pdf" target="_blank" rel="noopener noreferrer" className="about-resume-btn">
+            {/* <a href="/path-to-resume.pdf" target="_blank" rel="noopener noreferrer" className="about-resume-btn">
               View Resume →
-            </a>
+            </a> */}
             <a href="mailto:gomiero.david@email.com" className="about-contact-link">
               gomiero.david@email.com
             </a>
@@ -78,18 +78,18 @@ const AboutPage = () => {
 
       {/* ── Footer links ── */}
       <section className="about-links">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="about-link-item">
+        <a href="https://www.linkedin.com/in/davide-gomiero-30983755/" target="_blank" rel="noopener noreferrer" className="about-link-item">
           <span className="about-link-label">LinkedIn</span>
           <span className="about-link-arrow">↗</span>
         </a>
-        <a href="https://github.com/4031979/nox-lab-ui" target="_blank" rel="noopener noreferrer" className="about-link-item">
+        <a href="https://github.com/4031979" target="_blank" rel="noopener noreferrer" className="about-link-item">
           <span className="about-link-label">GitHub — Nox Lab UI</span>
           <span className="about-link-arrow">↗</span>
         </a>
-        <a href="https://4031979.github.io/nox-lab-ui/" target="_blank" rel="noopener noreferrer" className="about-link-item">
+      {/*   <a href="https://4031979.github.io/nox-lab-ui/" target="_blank" rel="noopener noreferrer" className="about-link-item">
           <span className="about-link-label">Storybook</span>
           <span className="about-link-arrow">↗</span>
-        </a>
+        </a> */}
       </section>
 
     </div>

@@ -19,6 +19,12 @@ const Navigation = ({ theme, toggleTheme }) => {
 
   return (
     <nav className="navigation">
+      {/* Overlay */}
+      <div 
+        className={`nav-overlay ${menuOpen ? 'active' : ''}`} 
+        onClick={closeMenu}
+      />
+
       <div className="nav-container">
         {/* Left side - Logo + Desktop Links */}
         <div className="nav-left">
@@ -31,7 +37,7 @@ const Navigation = ({ theme, toggleTheme }) => {
 
           {/* Desktop Navigation Links */}
           <div className="nav-links desktop-only">
-          <Link to="/" className="nav-link">Home</Link>
+            <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
           </div>
@@ -68,9 +74,9 @@ const Navigation = ({ theme, toggleTheme }) => {
         {/* Mobile Navigation Menu */}
         <div className={`nav-menu-mobile ${menuOpen ? 'active' : ''}`}>
           <div className="nav-links-mobile">
-          <Link to="/" className="nav-link">Home</Link>
+            <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
             <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
-            <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
+            <Link to="contact" className="nav-link" onClick={closeMenu}>Contact</Link>
           </div>
         </div>
       </div>

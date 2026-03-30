@@ -9,7 +9,10 @@ const ParticleBackground = ({ opacity = 0.5 }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const SPACING = 10;
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
+    const SPACING = 15;
     const THICKNESS = Math.pow(100, 2);
     const DRAG = 0.95;
     const EASE = 0.25;
@@ -24,7 +27,7 @@ const ParticleBackground = ({ opacity = 0.5 }) => {
     let particles = [];
     let mouse = { x: -1000, y: -1000 };
     let toggle = true;
-    let animFrameId = null; // ← store frame ID
+    let animFrameId = null;
 
     const ctx = canvas.getContext('2d');
 
@@ -81,52 +84,61 @@ const ParticleBackground = ({ opacity = 0.5 }) => {
     function animate() {
       toggle = !toggle;
 
-      if (toggle) {
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
-          const dx = mouse.x - p.x;
-          const dy = mouse.y - p.y;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq < THICKNESS) {
-            const force = -THICKNESS / distSq;
-            const angle = Math.atan2(dy, dx);
-            p.vx += force * Math.cos(angle);
-            p.vy += force * Math.sin(angle);
-          }
-
-          p.vx *= DRAG;
-          p.vy *= DRAG;
-          p.x += p.vx + (p.ox - p.x) * EASE;
-          p.y += p.vy + (p.oy - p.y) * EASE;
-        }
-      } else {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        const isDark = document.documentElement.classList.contains('dark');
-        const particleColor = isDark ? 200 : 80;
-
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
-          ctx.fillStyle = `rgb(${particleColor}, ${particleColor}, ${particleColor})`;
-          ctx.fillRect(Math.floor(p.x), Math.floor(p.y), 2, 2);
-        }
+      // Skip entire frame every other tick (runs at ~30fps)
+      if (!toggle) {
+        animFrameId = requestAnimationFrame(animate);
+        return;
       }
 
-      animFrameId = requestAnimationFrame(animate); // ← store ID
+      // Physics
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < THICKNESS) {
+          const force = -THICKNESS / distSq;
+          const dist = Math.sqrt(distSq);
+          // Avoid expensive atan2
+          p.vx += force * (dx / dist);
+          p.vy += force * (dy / dist);
+        }
+
+        p.vx *= DRAG;
+        p.vy *= DRAG;
+        p.x += p.vx + (p.ox - p.x) * EASE;
+        p.y += p.vy + (p.oy - p.y) * EASE;
+      }
+
+      // Draw
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const isDark = document.documentElement.classList.contains('dark');
+      const particleColor = isDark ? 200 : 80;
+      ctx.fillStyle = `rgb(${particleColor}, ${particleColor}, ${particleColor})`;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.fillRect(Math.floor(p.x), Math.floor(p.y), 2, 2);
+      }
+
+      animFrameId = requestAnimationFrame(animate);
     }
 
     animate();
 
     return () => {
-      cancelAnimationFrame(animFrameId); // ← cancel on unmount
+      cancelAnimationFrame(animFrameId);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  return (
+  const isMobile = window.innerWidth < 768;
+
+  return isMobile ? null : (
     <canvas 
       ref={canvasRef}
       style={{

@@ -122,3 +122,20 @@
   height: 100%;
   display: block;
 }
+
+
+@media (max-width: 768px) {
+  .hc-main-wrapper {
+    padding: 0 20px;
+  }
+
+  .hc-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hc-work-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+}

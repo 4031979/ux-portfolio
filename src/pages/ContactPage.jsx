@@ -1,7 +1,6 @@
 // src/pages/ContactPage.jsx
 
 import React, { useState, useRef, useEffect } from 'react';
-import ParticleBackground from '../components/ParticleBackground';
 import { supabase } from '../lib/supabaseClient';
 import './Contact.css';
 
@@ -112,7 +111,6 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
-      <ParticleBackground opacity={0.5} />
       <div className="contact-content">
         <div className="contact-header">
           <h1 className="contact-title">Let's work together</h1>
