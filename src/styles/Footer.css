@@ -1,0 +1,15 @@
+/* src/styles/Footer.css */
+
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+  }
+  
+  .footer p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+  }

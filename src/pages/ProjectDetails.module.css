@@ -1,0 +1,48 @@
+/* Prefisso pd- per isolare gli stili da altre parti del sito */
+.pd-main-wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 150px 0 100px 0; /* Aggiunto paddingTop per evitare sovrapposizioni navbar */
+  color: #1a1a1a;
+}
+
+.pd-header { padding: 0 10% 80px; max-width: 1400px; margin: 0 auto; }
+
+.pd-back-link { text-decoration: none; color: #999; font-size: 0.8rem; text-transform: uppercase; }
+
+.pd-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-top: 2rem;
+}
+
+.pd-subtitle { color: #666; font-size: 1.2rem; margin-top: 1rem; }
+
+.pd-container { max-width: 1400px; margin: 0 auto; padding: 0 10%; }
+
+.pd-hero-img { width: 100%; border-radius: 8px; margin-bottom: 80px; display: block; }
+
+/* Griglia Editoriale isolata */
+.pd-info-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 60px 0;
+  border-top: 1px solid #eee;
+}
+
+.pd-label { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 600; }
+
+.pd-text { font-size: 1.5rem; line-height: 1.6; color: #333; max-width: 700px; }
+
+.pd-tags { list-style: none; padding: 0; display: flex; gap: 20px; font-size: 1.2rem; }
+
+/* Overlay Modale (anche questo isolato) */
+.pd-password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+
+@media (max-width: 768px) {
+  .pd-info-grid { grid-template-columns: 1fr; gap: 20px; }
+  .pd-title { font-size: 3rem; }
+}

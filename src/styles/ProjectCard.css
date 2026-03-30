@@ -1,0 +1,70 @@
+/* src/styles/ProjectCard.css - SIMPLEST VERSION */
+
+.single-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 350px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.card-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-button {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: none;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.single-card:hover .card-button {
+  display: block;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.card-period {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}

@@ -1,0 +1,127 @@
+/* src/pages/TestCards.css */
+
+.test-section {
+  padding: 1rem 0 180px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.test-section h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+
+
+
+
+
+.dark .test-card {
+  background: #1f1f1f;
+}
+
+
+
+.dark .test-card:hover {
+  box-shadow: 
+    2px 2px 1px 1px rgba(255, 255, 255, 0.05), 
+    2px 3px 1px 1px rgba(255, 255, 255, 0.03), 
+    9px 14px 18px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.dark .card-icon {
+  background: #1a1a1a;
+  border: 1px solid #3a3a3a;
+}
+
+.test-card:hover .card-icon {
+  transform: scale(1.05);
+}
+
+.card-header h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* FIX DEL BOTTONE: Utilizzo di max-height e margin-top: auto per stabilità */
+.card-button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  display: block;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: auto; /* Spinge sempre il bottone in fondo */
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.test-card:hover .card-button {
+  opacity: 1;
+  max-height: 50px;
+}
+
+.card-button:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border-color: var(--text-color);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem; /* Spazio tra testo info e bottone */
+}
+
+.card-info p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* --- Sezioni Video e Contatti (Invariate) --- */
+.video-section { width: 100%; overflow: hidden; }
+.video-section video { width: 100%; height: auto; display: block; }
+.video-caption { padding: 12px 0 0 4px; }
+.video-caption-title { display: inline-block; font-weight: 600; color: var(--text-color); text-decoration: none; position: relative; }
+.video-caption-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background-color: var(--text-color); transition: width 0.3s; }
+.video-caption-title:hover::after { width: 100%; }
+
+.contact-section { padding: 6rem 0 4rem 0; text-align: center; border-top: 1px solid var(--border-color); margin-top: 4rem; position: relative; z-index: 10; }
+.lets-chat-button { display: inline-block; padding: 1.5rem 4rem; font-size: 1.5rem; font-weight: 700; color: var(--text-color); background: transparent; border: 3px solid #d4ff00; border-radius: 50px; transition: all 0.3s ease; }
+.lets-chat-button:hover { background: #d4ff00; color: #000000; transform: scale(1.05); }
+
+@media (max-width: 768px) {
+  .test-grid { grid-template-columns: 1fr; }
+  .card-button { opacity: 1; max-height: 50px; }
+}

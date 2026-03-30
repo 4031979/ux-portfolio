@@ -1,0 +1,276 @@
+/* src/components/game/TowerBlocks.css */
+
+.tower-blocks-wrapper {
+    width: 100%;
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+  }
+  
+  .tower-blocks-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: #D0CBC7;
+    transition: background 0.3s ease;
+  }
+  
+  /* Dark mode adjustments */
+  .dark .tower-blocks-container {
+    background: #2a2a3a;
+  }
+  
+  #game-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #score-display {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 10vh;
+    font-weight: 700;
+    color: #333344;
+    transform: translateY(-200px) scale(1);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+  }
+  
+  #score-display.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  
+  .dark #score-display {
+    color: #f0f0f0;
+  }
+  
+  .tower-blocks-container.playing #score-display {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  
+  #game-instructions {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #333344;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+  }
+  
+  .dark #game-instructions {
+    color: #f0f0f0;
+  }
+  
+  #game-instructions.hide {
+    opacity: 0;
+  }
+  
+  /* Game Ready State */
+  .game-ready {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(208, 203, 199, 0.9);
+    z-index: 10;
+    transition: opacity 0.3s ease;
+  }
+  
+  .dark .game-ready {
+    background: rgba(42, 42, 58, 0.95);
+  }
+  
+  .tower-blocks-container.playing .game-ready,
+  .tower-blocks-container.ended .game-ready {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #start-game-btn {
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  #start-game-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
+  
+  #start-game-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* Game Over State */
+  .game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(208, 203, 199, 0.95);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+  .dark .game-over {
+    background: rgba(42, 42, 58, 0.95);
+  }
+  
+  .tower-blocks-container.ended .game-over {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .game-over h2 {
+    margin: 0 0 20px 0;
+    font-size: 48px;
+    color: #333344;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+  }
+  
+  .dark .game-over h2 {
+    color: #f0f0f0;
+  }
+  
+  .game-over p {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #555;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+  }
+  
+  .dark .game-over p {
+    color: #ccc;
+  }
+  
+  .game-over button {
+    margin-top: 30px;
+    padding: 15px 35px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', 'Sofia Pro', sans-serif;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .game-over button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
+  
+  .game-over button:active {
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .tower-blocks-wrapper {
+      padding: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+    }
+  
+    .tower-blocks-container {
+      height: 400px;
+    }
+  
+    #score-display {
+      font-size: 8vh;
+    }
+  
+    #game-instructions {
+      font-size: 16px;
+      bottom: 10px;
+    }
+  
+    .game-over h2 {
+      font-size: 36px;
+    }
+  
+    .game-over p {
+      font-size: 18px;
+    }
+  
+    #start-game-btn {
+      padding: 15px 30px;
+      font-size: 20px;
+    }
+  
+    .game-over button {
+      padding: 12px 28px;
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tower-blocks-container {
+      height: 350px;
+    }
+  
+    #score-display {
+      font-size: 7vh;
+    }
+  
+    #game-instructions {
+      font-size: 14px;
+    }
+  
+    .game-over h2 {
+      font-size: 28px;
+    }
+  
+    .game-over p {
+      font-size: 16px;
+    }
+  
+    #start-game-btn {
+      padding: 12px 25px;
+      font-size: 18px;
+    }
+  
+    .game-over button {
+      padding: 10px 24px;
+      font-size: 16px;
+    }
+  }

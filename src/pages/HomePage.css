@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+.hc-main-wrapper {
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.hc-hero {
+  padding: 70px 0 70px 0;
+}
+
+.hc-hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.hc-featured-video {
+  margin-bottom: 0;
+}
+
+.hc-featured-video video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ── Video meta (under hero video) ── */
+.hc-video-meta {
+  padding: 16px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hc-meta-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s;
+}
+
+.hc-meta-title:hover {
+  opacity: 0.5;
+}
+
+.hc-meta-cat {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* ── Grid ── */
+.hc-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+  margin-bottom: 160px;
+}
+
+.hc-project-card {
+  text-decoration: none;
+  color: #000;
+}
+
+.hc-card-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #f0f0f0;
+  margin-bottom: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hc-project-card:hover .hc-card-placeholder {
+  transform: scale(0.98);
+}
+
+/* ── Card text (under grid images) ── */
+.hc-card-text {
+  padding: 16px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hc-card-text h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s;
+}
+
+.hc-project-card:hover .hc-card-text h3 {
+  opacity: 0.5;
+}
+
+.hc-card-text p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.hc-card-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

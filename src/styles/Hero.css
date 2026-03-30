@@ -1,0 +1,58 @@
+/* src/styles/Hero.css */
+
+.hero {
+  padding: var(--spacing-md) 0 calc(var(--spacing-md) + var(--spacing-md)) 0;
+  max-width: 900px;
+  padding-top: 80px;
+}
+
+/* Alternative - marker style */
+.highlight-marker {
+  background: linear-gradient(to bottom, transparent 50%, #ddedfc 30%);
+  padding: 0 4px;
+  font-weight: 600;
+}
+
+.hero-title {
+  font-size: 80px;
+  font-weight: 200;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  animation: fadeInUp 0.6s ease;
+
+}
+
+.hero-description {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 400;
+  animation: fadeInUp 0.6s ease 0.2s both;
+
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: calc(var(--spacing-lg) - var(--spacing-md)) 0 var(--spacing-lg) 0;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+}

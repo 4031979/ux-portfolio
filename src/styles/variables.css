@@ -1,0 +1,62 @@
+/* src/styles/variables.css */
+
+:root {
+    /* Light theme colors */
+    --bg-color-light: #fafafa;
+    --text-color-light: #1a1a1a;
+    --text-secondary-light: #666;
+    --card-bg-light: #ffffff;
+    --border-color-light: #e5e5e5;
+    --button-bg-light: #f0f0f0;
+    --button-text-light: #1a1a1a;
+  
+    /* Dark theme colors */
+    --bg-color-dark: #1a1a1a;
+    --text-color-dark: #fafafa;
+    --text-secondary-dark: #a0a0a0;
+    --card-bg-dark: #2a2a2a;
+    --border-color-dark: #3a3a3a;
+    --button-bg-dark: #3a3a3a;
+    --button-text-dark: #fafafa;
+  
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+  
+    /* Typography */
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 0.95rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2.5rem;
+    --font-size-3xl: 4rem;
+  
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+  }
+  
+  /* Apply theme variables */
+  .light {
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+    --text-secondary: var(--text-secondary-light);
+    --card-bg: var(--card-bg-light);
+    --border-color: var(--border-color-light);
+    --button-bg: var(--button-bg-light);
+    --button-text: var(--button-text-light);
+  }
+  
+  .dark {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --card-bg: var(--card-bg-dark);
+    --border-color: var(--border-color-dark);
+    --button-bg: var(--button-bg-dark);
+    --button-text: var(--button-text-dark);
+  }

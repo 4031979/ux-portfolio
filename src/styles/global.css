@@ -1,0 +1,66 @@
+/* src/styles/global.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.container {
+
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.home-page {
+  width: 100%;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+nav {
+  position: relative;
+  z-index: 100;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button, div, span {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* src/styles/global.css */
+.hc-main-wrapper {
+  margin: 0 auto;
+  padding: 0 40px; /* Questo garantisce il padding su tutti i dispositivi */
+  width: 100%;
+  box-sizing: border-box; /* Importante per non far uscire il contenuto dal padding */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}

@@ -1,0 +1,76 @@
+/* src/App.css */
+
+.home-page {
+  width: 100%;
+}
+
+.work-section {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 6rem;
+  width: 100%;
+}
+
+.writing-section {
+  padding: 4rem 0 6rem 0;
+  width: 100%;
+}
+
+.writing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: padding-left 0.2s ease;
+}
+
+.writing-item:hover {
+  padding-left: 1rem;
+}
+
+.writing-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.writing-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .writing-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
