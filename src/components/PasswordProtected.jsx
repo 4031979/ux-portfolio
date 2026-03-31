@@ -31,6 +31,11 @@ const PasswordProtected = ({ children, projectId }) => {
           p_password: password,
         });
 
+      // 👇 Debug logs
+      console.log('project_id sent:', String(projectId));
+      console.log('data returned:', data);
+      console.log('error:', dbError);
+
       if (dbError) throw dbError;
 
       if (data === true) {
