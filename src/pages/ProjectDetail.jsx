@@ -1,14 +1,14 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PasswordProtected from '../components/PasswordProtected';
-import ProtectionUX from '../assets/Nozomi-UX-3.png'
+/* import ProtectionUX from '../assets/Nozomi-UX-3.png'
 import DetailPage from '../assets/process-03.png'
 import DropdownNozomi from '../assets/Nozomi-dropdown.png'
 import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
 import nozomiInstall1 from '../assets/install-01.png';
 import nozomiInstall2 from '../assets/install-02.png';
 import nozomiInstall4 from '../assets/install-04.png';
-import nozomiInstallEnd from '../assets/install-end.png';
+import nozomiInstallEnd from '../assets/install-end.png'; */
 
 // Telary Studio assets
 import telaryHero    from '../assets/cover-home-02.jpg';
@@ -81,7 +81,7 @@ const projects = {
     prev: null,
     next: null,
   },
-  2: {
+  /* 2: {
     title: 'Nozomi Networks',
     subtitle: 'Redesigning clarity for one of the world\'s most complex security platforms.',
     tags: ['Branding', 'UI/UX Design', 'Dashboard', 'Rapid Prototyping'],
@@ -120,7 +120,7 @@ const projects = {
     ],
     prev: { id: 4, title: 'Rokt' },
     next: { id: 'rtk', title: 'Solidform' },
-  },
+  }, */
   3: {
     title: 'CoStar Group',
     subtitle: 'Finding home should not feel like searching in the dark.',

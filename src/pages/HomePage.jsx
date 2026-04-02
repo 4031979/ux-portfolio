@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import solidformVideo from '../assets/solidform01.mp4';
 import telarycover from '../assets/cover-home.jpg';
-import nozomicover from '../assets/Nozomi-02.png';
+/* import nozomicover from '../assets/Nozomi-02.png'; */
 import hanglagecover from '../assets/Exylus-targ-2.png'
 
 const HomePage = () => {
@@ -28,7 +28,7 @@ const HomePage = () => {
       <section className="hc-work-grid">
         <ProjectCard title="CoStar Group" category="Visual Design" link="/work/3" image={telarycover} />
         <ProjectCard title="Rokt" category="UX Design" link="/work/4" image={hanglagecover} />
-        <ProjectCard title="Nozomi Networks" category="UX/UI Design" link="/work/2" image={nozomicover} />
+        {/* <ProjectCard title="Nozomi Networks" category="UX/UI Design" link="/work/2" image={nozomicover} /> */}
       </section>
     </div>
   );
