@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  padding: 80px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 80px;
 }
@@ -76,7 +76,6 @@
   transform-origin: top;
 }
 
-/* Kicking legs while falling */
 .char-leg-anim-1 { animation: kick 0.15s infinite alternate; }
 .char-leg-anim-2 { animation: kick 0.15s infinite alternate-reverse; }
 
@@ -94,23 +93,23 @@
 }
 
 @keyframes dropThroughPage {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  15% { transform: translateY(-15px) rotate(-15deg); }
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  15%  { transform: translateY(-15px) rotate(-15deg); }
   100% { transform: translateY(120vh) rotate(-360deg); opacity: 1; }
 }
 
 @keyframes kick {
-  0% { transform: scaleY(1); }
+  0%   { transform: scaleY(1); }
   100% { transform: scaleY(0.4); }
 }
 
 @keyframes jitter {
-  0% { transform: translateX(-50%) translate(1px, 1px); }
-  50% { transform: translateX(-50%) translate(-1px, -1px); }
+  0%   { transform: translateX(-50%) translate(1px, 1px); }
+  50%  { transform: translateX(-50%) translate(-1px, -1px); }
   100% { transform: translateX(-50%) translate(1px, -1px); }
 }
 
-/* ── Hero, Stats, Skills (Preserved from original) ── */
+/* ── Hero ── */
 .about-hero {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -126,6 +125,7 @@
 .about-bio .firstSentence { font-size: 45px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
 .about-bio p { font-size: 1rem; line-height: 1.75; color: var(--text-secondary); margin: 0; }
 
+/* ── Stats ── */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -141,10 +141,11 @@
   gap: 6px;
   border-right: 1px solid var(--border-color);
 }
-.about-stat:last-child { border-right: none; padding-left: 40px; }
+.about-stat:last-child  { border-right: none; padding-left: 40px; }
 .about-stat:nth-child(2) { padding-left: 40px; }
 .about-stat-value { font-size: 3rem; font-weight: 500; color: var(--text-color); }
 
+/* ── Skills ── */
 .about-skills {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -152,10 +153,81 @@
   margin-bottom: 100px;
 }
 
-.about-skill-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+.about-skill-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
 .about-skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.about-skill-tag { font-size: 0.875rem; padding: 5px 12px; border: 1px solid var(--border-color); border-radius: 4px; }
+.about-skill-tag {
+  font-size: 0.875rem;
+  padding: 5px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
 
+/* ── Footer Links ── */
+.about-links {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-color);
+}
+
+.about-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: opacity 0.2s ease;
+}
+
+.about-link-item:hover { opacity: 0.5; }
+
+.about-link-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.about-link-arrow {
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.about-link-item:hover .about-link-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* ── Actions (email link) ── */
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.about-contact-link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-contact-link:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .about-hero { grid-template-columns: 280px 1fr; gap: 60px; }
   .about-headline { font-size: 3rem; }
@@ -171,4 +243,6 @@
   .about-hero { grid-template-columns: 1fr; gap: 40px; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .about-stat:last-child { grid-column: span 2; border-right: none; padding-left: 0; }
+  .about-skills { grid-template-columns: 1fr; gap: 40px; }
+  .about-link-item { padding: 20px 0; }
 }
