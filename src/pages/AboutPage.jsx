@@ -2,6 +2,7 @@
 
 import React from 'react';
 import profilePhoto from '../assets/me.png';
+import DevilDash from '../components/DevilDash/DevilDash';
 import './About.css';
 
 const skills = {
@@ -13,19 +14,28 @@ const skills = {
 const stats = [
   { value: '15+', label: 'Years of experience' },
   { value: '70+', label: 'Projects delivered' },
-  { value: '3', label: 'Countries worked in' },
+  { value: '3',   label: 'Countries worked in' },
 ];
 
 const AboutPage = () => {
   return (
     <div className="about-page hc-main-wrapper">
 
-      {/* ── Headline ── */}
+      {/* ── Headline Section ── */}
       <div className="about-headline-wrap">
-        <h1 className="about-headline">
-          I turn complexity<br />into clarity.
-        </h1>
+        <div className="about-headline-text">
+          <h1 className="about-headline">
+            I turn complexity<br />into clarity.
+          </h1>
+        </div>
+
+        {/* ── Game moved inside the wrap to sit horizontally ── */}
+        <section className="about-headline-game">
+          <p className="about-game-label">take a break</p>
+          <DevilDash autoStart={true} /> 
+        </section>
       </div>
+   
 
       {/* ── Hero: photo + bio ── */}
       <section className="about-hero">
@@ -39,7 +49,10 @@ const AboutPage = () => {
             Product Designer with 15+ years at the intersection of UX strategy, UI craft, and frontend development.
           </p>
           <p>
-          I am a product designer with a decade-plus track record of blending communication design with frontend expertise. My career began in the world of data and marketing, which continues to fuel my obsession with user behavior and evidence-based design. Whether I’m building a design system from scratch or conducting deep-dive user research, I focus on creating products that are functional, scalable, and human-centric.
+            I am a product designer with a decade-plus track record of blending communication design with frontend expertise.
+            My career began in the world of data and marketing, which continues to fuel my obsession with user behavior
+            and evidence-based design. Whether I'm building a design system from scratch or conducting deep-dive user
+            research, I focus on creating products that are functional, scalable, and human-centric.
           </p>
           <div className="about-actions">
             {/* <a href="/path-to-resume.pdf" target="_blank" rel="noopener noreferrer" className="about-resume-btn">
@@ -76,6 +89,8 @@ const AboutPage = () => {
         ))}
       </section>
 
+     
+
       {/* ── Footer links ── */}
       <section className="about-links">
         <a href="https://www.linkedin.com/in/davide-gomiero-30983755/" target="_blank" rel="noopener noreferrer" className="about-link-item">
@@ -86,7 +101,7 @@ const AboutPage = () => {
           <span className="about-link-label">GitHub — Nox Lab UI</span>
           <span className="about-link-arrow">↗</span>
         </a>
-      {/*   <a href="https://4031979.github.io/nox-lab-ui/" target="_blank" rel="noopener noreferrer" className="about-link-item">
+        {/* <a href="https://4031979.github.io/nox-lab-ui/" target="_blank" rel="noopener noreferrer" className="about-link-item">
           <span className="about-link-label">Storybook</span>
           <span className="about-link-arrow">↗</span>
         </a> */}

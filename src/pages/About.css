@@ -7,21 +7,15 @@
   padding-bottom: 120px;
 }
 
-/* ── Headline ── */
+/* ── Headline Section ── */
 .about-headline-wrap {
-  padding: 70px 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 80px 0;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 80px;
-}
-
-.about-eyebrow {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
 }
 
 .about-headline {
@@ -30,9 +24,93 @@
   color: var(--text-color);
   margin: 0;
   line-height: 1.1;
+  flex: 1;
 }
 
-/* ── Hero ── */
+.about-game {
+  flex: 1.2;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-game-label {
+  font-family: monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+/* ── Falling Character Fourth Wall Break ── */
+.character-fall-out {
+  position: fixed;
+  width: 20px;
+  height: 28px;
+  z-index: 10000;
+  pointer-events: none;
+  animation: dropThroughPage 2s cubic-bezier(0.5, 0, 1, 0.5) forwards;
+}
+
+.char-head {
+  position: absolute;
+  top: 0; left: 4px; width: 12px; height: 10px;
+  background: #141414;
+}
+.char-eye {
+  position: absolute;
+  top: 3px; width: 3px; height: 4px;
+  background: white;
+}
+.char-body {
+  position: absolute;
+  top: 9px; left: 5px; width: 10px; height: 12px;
+  background: #141414;
+}
+.char-leg {
+  position: absolute;
+  top: 19px; width: 4px; height: 9px;
+  background: #141414;
+  transform-origin: top;
+}
+
+/* Kicking legs while falling */
+.char-leg-anim-1 { animation: kick 0.15s infinite alternate; }
+.char-leg-anim-2 { animation: kick 0.15s infinite alternate-reverse; }
+
+.char-scream {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 12px;
+  color: #cc1830;
+  white-space: nowrap;
+  animation: jitter 0.1s infinite;
+}
+
+@keyframes dropThroughPage {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  15% { transform: translateY(-15px) rotate(-15deg); }
+  100% { transform: translateY(120vh) rotate(-360deg); opacity: 1; }
+}
+
+@keyframes kick {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.4); }
+}
+
+@keyframes jitter {
+  0% { transform: translateX(-50%) translate(1px, 1px); }
+  50% { transform: translateX(-50%) translate(-1px, -1px); }
+  100% { transform: translateX(-50%) translate(1px, -1px); }
+}
+
+/* ── Hero, Stats, Skills (Preserved from original) ── */
 .about-hero {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -42,97 +120,12 @@
 }
 
 .about-photo-wrap { position: relative; }
+.about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 8px; display: block; }
 
-.about-photo {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
+.about-bio { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+.about-bio .firstSentence { font-size: 45px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+.about-bio p { font-size: 1rem; line-height: 1.75; color: var(--text-secondary); margin: 0; }
 
-.about-photo-tag {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: var(--bg-color);
-  color: var(--text-color);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-}
-
-/* Bio */
-.about-bio {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 8px;
-}
-
-.about-bio-lead {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  line-height: 1.4;
-  margin: 0 0 8px;
-}
-
-.about-bio p {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.about-bio .firstSentence {
-  font-size: 45px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.about-bio a {
-  color: var(--text-color);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s;
-}
-.about-bio a:hover { opacity: 0.6; }
-
-.about-actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-
-.about-resume-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 28px;
-  background: var(--text-color);
-  color: var(--bg-color) !important;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border-radius: 4px;
-  text-decoration: none !important;
-  transition: opacity 0.2s;
-}
-.about-resume-btn:hover { opacity: 0.75; }
-
-.about-contact-link {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.about-contact-link:hover { color: var(--text-color); }
-
-/* ── Stats ── */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -150,20 +143,8 @@
 }
 .about-stat:last-child { border-right: none; padding-left: 40px; }
 .about-stat:nth-child(2) { padding-left: 40px; }
+.about-stat-value { font-size: 3rem; font-weight: 500; color: var(--text-color); }
 
-.about-stat-value {
-  font-size: 3rem;
-  font-weight: 500;
-  color: var(--text-color);
-  line-height: 1;
-}
-
-.about-stat-label {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-}
-
-/* ── Skills ── */
 .about-skills {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -171,89 +152,23 @@
   margin-bottom: 100px;
 }
 
-.about-skill-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin: 0 0 16px;
-}
+.about-skill-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+.about-skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.about-skill-tag { font-size: 0.875rem; padding: 5px 12px; border: 1px solid var(--border-color); border-radius: 4px; }
 
-.about-skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.about-skill-tag {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--text-color);
-  background: var(--button-bg);
-  border: 1px solid var(--border-color);
-  padding: 5px 12px;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-.about-skill-tag:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-}
-
-/* ── Links ── */
-.about-links {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border-color);
-}
-
-.about-link-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border-color);
-  text-decoration: none;
-  transition: padding-left 0.2s;
-}
-.about-link-item:hover { padding-left: 8px; }
-
-.about-link-label {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--text-color);
-}
-
-
-.about-link-arrow {
-  font-size: 18px;
-  color: var(--text-secondary);
-  transition: transform 0.2s;
-}
-.about-link-item:hover .about-link-arrow {
-  transform: translate(3px, -3px);
-  color: var(--text-color);
-}
-
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .about-hero { grid-template-columns: 280px 1fr; gap: 60px; }
+  .about-headline { font-size: 3rem; }
+}
+
+@media (max-width: 900px) {
+  .about-headline-wrap { flex-direction: column; align-items: flex-start; gap: 2rem; padding: 60px 0; }
+  .about-game { width: 100%; max-width: none; }
+  .about-game-label { text-align: left; }
 }
 
 @media (max-width: 768px) {
-  .about-headline { font-size: 2.5rem; }
-  .about-headline-wrap { padding: 50px 0 40px; margin-bottom: 60px; }
   .about-hero { grid-template-columns: 1fr; gap: 40px; }
   .about-stats { grid-template-columns: 1fr 1fr; }
-  .about-stat:last-child { grid-column: span 2; border-right: none; padding-left: 0; padding-top: 0; }
-  .about-stat:nth-child(2) { padding-left: 0; }
-  .about-skills { grid-template-columns: 1fr; gap: 32px; }
-}
-
-@media (max-width: 480px) {
-  .about-headline { font-size: 2rem; }
-  .about-stats { grid-template-columns: 1fr; }
-  .about-stat { border-right: none; padding: 24px 0; }
-  .about-stat:last-child { grid-column: span 1; }
+  .about-stat:last-child { grid-column: span 2; border-right: none; padding-left: 0; }
 }
