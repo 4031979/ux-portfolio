@@ -59,7 +59,7 @@ const AboutPage = () => {
               View Resume →
             </a> */}
             <a href="mailto:gomiero.david@email.com" className="about-contact-link">
-              gomiero.david@email.com
+              gomiero.david@gmail.com
             </a>
           </div>
         </div>

@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import './Contact.css';
 
-const PROJECT_TYPES = ['UI/UX Design', 'Branding', 'Design System', 'Consulenza', 'Altro'];
+const PROJECT_TYPES = ['UI/UX Design', 'Branding', 'Design System', 'Consultancy', 'Other'];
 
 const CustomSelect = ({ value, onChange, disabled, error }) => {
   const [open, setOpen] = useState(false);
