@@ -2,7 +2,7 @@
 
 import React from 'react';
 import profilePhoto from '../assets/me.png';
-import DevilDash from '../components/DevilDash/DevilDash';
+// import DevilDash from '../components/DevilDash/DevilDash';
 import './About.css';
 
 const skills = {
@@ -31,8 +31,8 @@ const AboutPage = () => {
 
         {/* ── Game moved inside the wrap to sit horizontally ── */}
         <section className="about-headline-game">
-          <p className="about-game-label">take a break</p>
-          <DevilDash autoStart={true} /> 
+      
+          {/* <DevilDash autoStart={true} />  */}
         </section>
       </div>
    
