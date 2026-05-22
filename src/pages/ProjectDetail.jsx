@@ -99,10 +99,7 @@ const projects = {
       { type: 'headline', text: 'Complexity, made legible.' },
       { type: 'body',     text: 'We started with a week of shadowing analysts in the field. The existing dashboard demanded too much — too many clicks, too much context switching. The redesign began by removing, not adding.' },
       { type: 'full',     src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
-      { type: 'grid2', items: [
-        { src: ProtectionUX, alt: 'Architecture' },
-        { src: DetailPage,   alt: 'Data viz' },
-      ]},
+      { type: 'full',src: ProtectionUX, alt: 'Architecture' },
       { type: 'headline', text: 'Hierarchy before aesthetics.' },
       { type: 'body',     text: 'Every artboard went through three rounds of information hierarchy review. We asked one question constantly: if an analyst has 10 seconds, what do they need to see first? That question shaped every layout decision.' },
       { type: 'full',     src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
