@@ -136,7 +136,7 @@
 /* ── Grid 2 ── */
 .pd-grid2 {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 .pd-grid2 img,

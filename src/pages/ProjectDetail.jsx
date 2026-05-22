@@ -94,8 +94,11 @@ const projects = {
     deliverables: ['Brand Strategy', 'UI Design', 'Dashboard Design', 'Design System'],
     blocks: [
       { type: 'full',     src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
-      { type: 'splitText', src: '/assets/recbac-blue.mp4', alt: 'Recbac Blue',
-        text: 'The brief was clear: security analysts were drowning in data. Our job was to bring structure to chaos — designing an interface that makes critical information impossible to miss.' },
+      { type: 'grid2', items: [
+        { src: DetailPage, alt: 'Data viz' },
+        { src: '/assets/recbac-blue.mp4', alt: 'Recbac Blue' }
+        
+      ]},
       { type: 'headline', text: 'Complexity, made legible.' },
       { type: 'body',     text: 'We started with a week of shadowing analysts in the field. The existing dashboard demanded too much — too many clicks, too much context switching. The redesign began by removing, not adding.' },
       { type: 'full',     src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
