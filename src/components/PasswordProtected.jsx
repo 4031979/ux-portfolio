@@ -5,6 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import '../styles/PasswordProtected.css';
 
+const WarningIcon = () => (
+  <svg
+    width="15" height="15" viewBox="0 0 15 15"
+    fill="none" aria-hidden="true"
+    style={{ flexShrink: 0, marginTop: '1px' }}
+  >
+    <path
+      d="M7.5 1L14 13.5H1L7.5 1z"
+      stroke="currentColor" strokeWidth="1.4"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7.5 6v3.5M7.5 11.5v.5"
+      stroke="currentColor" strokeWidth="1.4"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
 const PasswordProtected = ({ children, projectId }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -31,7 +50,6 @@ const PasswordProtected = ({ children, projectId }) => {
           p_password: password,
         });
 
-      // 👇 Debug logs
       console.log('project_id sent:', String(projectId));
       console.log('data returned:', data);
       console.log('error:', dbError);
@@ -71,12 +89,17 @@ const PasswordProtected = ({ children, projectId }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
-            className="password-input"
+            className={`password-input${error ? ' password-input--error' : ''}`}
             autoFocus
             disabled={loading}
           />
 
-          {error && <p className="error-message">{error}</p>}
+          {error && (
+            <p className="error-message">
+              <WarningIcon />
+              {error}
+            </p>
+          )}
 
           <button type="submit" className="password-submit" disabled={loading}>
             {loading ? 'Checking...' : 'Submit'}

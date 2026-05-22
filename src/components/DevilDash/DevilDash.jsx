@@ -82,7 +82,7 @@ const LEVELS = [
     start: { x: 30, y: 150 }, gp: { x: 614, y: 80 },
     plats: [
       { x: 0,   y: 190, w: 160, h: 3, t: 'solid' },
-      { x: 200, y: 165, w: 110, h: 14, t: 'fake'  },
+      { x: 200, y: 165, w: 110, h: 14, t: 'solid'  },
       { x: 360, y: 150, w: 80,  h: 14, t: 'crumble' },
       { x: 480, y: 190, w: 220, h: 30, t: 'solid' },
       { x: 600, y: 108, w: 96,  h: 14, t: 'solid' },
@@ -92,7 +92,7 @@ const LEVELS = [
       { ox: GW + 10, y: 82, r: 9, speed: -6.5, delay: 1400 },
       { ox: GW + 10, y: 82, r: 9, speed: -6.5, delay: 3200 },
     ],
-    signs: [{ x: 212, y: 158, text: '← safe!' }],
+    signs: [{ x: 212, y: 158, text: '← satttttttttttfe!' }],
   },
 ];
 
@@ -143,10 +143,10 @@ export default function DevilDash() {
     observer.observe(canvas);
 
     // ── Game state ──────────────────────────────────────────
-    let lvIdx = 0;
+    let lvIdx = 6;
     let plats = [], enms = [], balls = [], signs = [], goal = {};
     let pl = { dead: false };
-    let lvMs = 0;
+    let lvMs = 6;
 
     const initLv = (i) => {
       const def = LEVELS[i % LEVELS.length];
