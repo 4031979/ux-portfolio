@@ -119,7 +119,7 @@
   padding: 32px 0 32px 40px;
   text-align: center;
   margin: 0px auto;
-  max-width: 900px;
+  max-width: 1024px;
 }
 .pd-pull-quote p {
   font-family: 'Syne', sans-serif;
@@ -130,6 +130,15 @@
   line-height: 1.3;
   margin: 0;
 }
+/* ── Inline link ── */
+.pd-inline-link {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+.pd-inline-link:hover { opacity: 0.5; }
 
 /* ── Grid 2 ── */
 .pd-grid2 {

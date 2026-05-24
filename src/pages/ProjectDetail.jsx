@@ -17,7 +17,7 @@ import nozomiInstall4 from '../assets/install-04.png';
 import nozomiInstallEnd from '../assets/install-end.png';
 
 // Telary Studio assets
-import telaryHero    from '../assets/cover-home-02.jpg';
+
 import telaryCover03 from '../assets/cover-home-03.jpg';
 import telaryCover04 from '../assets/cover-home-04.jpg';
 import telaryCover05 from '../assets/cover-home-05.jpg';
@@ -178,7 +178,6 @@ const projects = {
       { type: 'full', src: flowOnBoard, alt: 'Guardian Air onboarding flow' },
 
       { type: 'full', src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
-      { type: 'full', src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
 
       // ── DESIGN APPROACH ──
       { type: 'section-intro',
@@ -271,22 +270,19 @@ const projects = {
     ],
     deliverables: ['UX Strategy', 'UI Design', 'Design System', 'Prototyping', 'Handoff'],
     blocks: [
-      { type: 'full',     src: telaryHero, alt: 'Telary Hero' },
       { type: 'section-intro',
         label: 'The Brief',
         texts: [
-          'This project was a collaboration with Ron Design Lab, an award-winning UX/UI studio whose work spans Samsung, Ford, and Huawei. Together we led the end-to-end redesign of the CoStar Group consumer property search experience — combining strategic UX thinking with a high standard of visual craft.',
+          <>This project was a collaboration with <a href="https://rondesignlab.com/" target="_blank" rel="noopener noreferrer" className="pd-inline-link">Ron Design Lab</a>, an award-winning UX/UI studio whose work spans Samsung, Ford, and Huawei. Together we led the end-to-end redesign of the CoStar Group consumer property search experience — combining strategic UX thinking with a high standard of visual craft.</>,
         ]
       },
-      { type: 'headline', text: 'Home is not a filter.' },
-      { type: 'body',     text: 'Not a price range. Not a pin on a map. We redesigned Telary from the ground up — so that searching for a place to live feels as human as the decision itself.' },
+   
       { type: 'full',     src: telaryCover03, alt: 'Studio overview' },
       { type: 'grid2', items: [
         { src: telaryCover04, alt: 'Process' },
         { src: telaryCover05, alt: 'Exploration' },
       ]},
       { type: 'quote',    text: 'Every space tells a story. We built the interface to listen.' },
-      { type: 'headline', text: 'Location. Light. Layout.' },
       { type: 'body',     text: 'The things that matter most are rarely the ones in the listing. We brought them to the surface — giving buyers language for what they already felt.' },
       { type: 'grid2', items: [
         { src: telaryScreen1, alt: 'Screen 1' },
@@ -296,7 +292,6 @@ const projects = {
         { src: telaryScreen3, alt: 'Screen 3' },
         { src: telaryScreen4, alt: 'Screen 4' },
       ]},
-      { type: 'body',     text: 'Bounce rate dropped by 35% and average session duration doubled after the redesigned experience launched.' },
     ],
     prev: { id: 'rtk', title: 'Solidform' },
     next: { id: 4, title: 'Rokt' },
