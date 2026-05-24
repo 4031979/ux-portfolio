@@ -4,7 +4,7 @@ import PasswordProtected from '../components/PasswordProtected';
 import ProtectionUX from '../assets/Nozomi-UX-3.png'
 import flowOnBoard from '../assets/flow-onBoard.png'
 import DetailPage from '../assets/process-03.png'
-import DropdownNozomi from '../assets/Nozomi-dropdown.png'
+import PlanConfig from '../assets/Plan-config.png'
 import kiosk01 from '../assets/kiosk-01.png'
 import kiosk02 from '../assets/kiosk-02.png'
 import kiosk03 from '../assets/kiosk-03.png'
@@ -209,7 +209,7 @@ const projects = {
       { type: 'full', src: target01, alt: 'Target 01' },
       { type: 'full', src: target02, alt: 'Target 02' },
 
-      { type: 'full', src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
+      { type: 'full', src: PlanConfig, alt: 'Data charts', className: 'pd-block-padded' },
       { type: 'full', src: '/assets/deploy-sens.mp4', alt: 'Deploy Sensor' },
       { type: 'full', src: '/assets/expansion.mp4', alt: 'Expansion', className: 'pd-block-centered' },
 
