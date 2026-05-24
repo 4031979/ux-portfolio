@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PasswordProtected from '../components/PasswordProtected';
 import ProtectionUX from '../assets/Nozomi-UX-3.png'
+import flowOnBoard from '../assets/flow-onBoard.png'
 import DetailPage from '../assets/process-03.png'
 import DropdownNozomi from '../assets/Nozomi-dropdown.png'
 import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
@@ -46,6 +47,40 @@ import './ProjectDetail.css';
 
 const isVideo = (src) => typeof src === 'string' && /\.(mp4|mov|webm)$/i.test(src);
 
+// ── Carousel component ───────────────────────────────────────────────────────
+const CarouselBlock = ({ items }) => {
+  const [current, setCurrent] = React.useState(0);
+  const prev = () => setCurrent(i => (i - 1 + items.length) % items.length);
+  const next = () => setCurrent(i => (i + 1) % items.length);
+  const item = items[current];
+  return (
+    <div className="pd-carousel">
+      <div className="pd-carousel-stage">
+        {isVideo(item.src)
+          ? <video src={item.src} autoPlay loop muted playsInline />
+          : <img src={item.src} alt={item.alt || ''} />
+        }
+      </div>
+      <div className="pd-carousel-controls">
+        <button className="pd-carousel-btn" onClick={prev}>←</button>
+        <div className="pd-carousel-info">
+          <span className="pd-carousel-label">{item.label}</span>
+          <div className="pd-carousel-dots">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                className={`pd-carousel-dot${i === current ? ' pd-carousel-dot--active' : ''}`}
+                onClick={() => setCurrent(i)}
+              />
+            ))}
+          </div>
+        </div>
+        <button className="pd-carousel-btn" onClick={next}>→</button>
+      </div>
+    </div>
+  );
+};
+
 const projects = {
   1: {
     title: 'SAV',
@@ -81,10 +116,10 @@ const projects = {
     prev: null,
     next: null,
   },
-   2: {
+  2: {
     title: 'Nozomi Networks',
     subtitle: 'Redesigning clarity for one of the world\'s most complex security platforms.',
-    tags: ['Branding', 'UI/UX Design', 'Dashboard', 'Rapid Prototyping'],
+    tags: ['UI/UX Design', 'Dashboard', 'Rapid Prototyping'],
     info: [
       { key: 'Client',   val: 'Nozomi Networks' },
       { key: 'Year',     val: '2024' },
@@ -93,34 +128,128 @@ const projects = {
     ],
     deliverables: ['Brand Strategy', 'UI Design', 'Dashboard Design', 'Design System'],
     blocks: [
-      { type: 'full',     src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
+
+      // ── HERO ──
+      { type: 'full', src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
+
+      // ── THE BRIEF ──
+      { type: 'section-intro',
+        label: 'The Brief',
+        texts: [
+          'Nozomi Networks had built powerful technology. What they hadn\'t built was a product experience. The platform was full of raw functionality — configuration panels, sensor management, protocol queries — but no coherent user journey connecting any of it.',
+          'I was brought in to start from scratch: sketch the flows on paper, understand what users actually needed to do on day one, and turn a collection of features into something that felt designed. The brief wasn\'t to redesign an interface. It was to create one.',
+        ]
+      },
+
       { type: 'grid2', items: [
         { src: DetailPage, alt: 'Data viz' },
-        { src: '/assets/recbac-blue.mp4', alt: 'Recbac Blue' }
-        
+        { src: '/assets/recbac-blue.mp4', alt: 'Recbac Blue' },
       ]},
-      { type: 'headline', text: 'Complexity, made legible.' },
-      { type: 'body',     text: 'We started with a week of shadowing analysts in the field. The existing dashboard demanded too much — too many clicks, too much context switching. The redesign began by removing, not adding.' },
-      { type: 'full',     src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
-      { type: 'full',src: ProtectionUX, alt: 'Architecture' },
-      { type: 'headline', text: 'Hierarchy before aesthetics.' },
-      { type: 'body',     text: 'Every artboard went through three rounds of information hierarchy review. We asked one question constantly: if an analyst has 10 seconds, what do they need to see first? That question shaped every layout decision.' },
-      { type: 'full',     src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
-      { type: 'full',     src: '/assets/deploy-sens.mp4', alt: 'Deploy Sensor' },
-      { type: 'full',     src: '/assets/expansion.mp4', alt: 'Expansion', className: 'pd-block-centered' },
-      { type: 'quote',    text: 'From source to destination. The protocol speaks. The interface listens.' },
-      { type: 'body',     text: 'The final system reduced time to first insight from 12 minutes to under 90 seconds. More importantly, analysts reported feeling in control — not overwhelmed — for the first time.' },
-      { type: 'full',     src: '/assets/video-integration.mp4', alt: 'Video Integration' },
-      { type: 'full',     src: nozomiInstall1, alt: 'Installation' },
-      { type: 'full',     src: nozomiInstall2, alt: 'Installation' },
-      { type: 'full',     src: nozomiInstall4, alt: 'Installation' },
-      { type: 'full',     src: nozomiInstallEnd, alt: 'Installation' },
-     
-      { type: 'full',     src: nozomiSlide, alt: 'Nozomi Slide' },
+
+      // ── THE PROBLEM ──
+      { type: 'section-intro',
+        label: 'The Problem',
+        texts: [
+          'Nozomi\'s platform monitors critical infrastructure in real time — power grids, hospitals, industrial plants. The users are security analysts whose job is to detect threats before they become incidents. But the interface was working against them. There was no visual hierarchy, no design system, and no coherent flow.',
+          'The most common failure mode wasn\'t confusion about features. It was disorientation — analysts couldn\'t quickly understand where they were, what needed their attention, or what to do next. In a high-stakes environment, that disorientation has real consequences.',
+        ]
+      },
+
+      { type: 'insight',
+        label: 'Core Problem',
+        text: 'Complexity, made legible. The platform had the data. The interface was hiding it.'
+      },
+
+      // ── RESEARCH ──
+      { type: 'section-intro',
+        label: 'Research',
+        texts: [
+          'The sensor onboarding flow was one of the most critical — and most broken — parts of the platform. It was the first thing a new analyst had to complete, and it was causing significant drop-off. Users were abandoning setup before they had seen a single piece of value from the product.',
+          'We mapped the existing journey step by step and found three core problems: manual sensor ID entry was error-prone and slow, there were no progress indicators so users had no sense of how far they were or what came next, and the flow asked for configuration decisions before explaining what those decisions meant.',
+          'The redesign was built around one principle: earn the next step before asking for it. QR scanning replaced manual ID entry entirely. Each screen confirms the previous action before requesting the next input. The result is a flow where the user always knows where they are, what just happened, and what to do next.',
+        ]
+      },
+
+      { type: 'full', src: flowOnBoard, alt: 'Guardian Air onboarding flow' },
+
+      { type: 'full', src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
+      { type: 'full', src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
+
+      // ── DESIGN APPROACH ──
+      { type: 'section-intro',
+        label: 'Design Approach',
+        texts: [
+          'My approach was deliberate: solve the UX before touching the UI. That meant mapping every core task — alert triage, asset investigation, sensor deployment, network expansion — and designing the flow logic before a single high-fidelity frame was produced.',
+          'Only once every flow was validated did we move to visual design. Hierarchy before aesthetics. Information architecture before colour. Structure before style. This sequence is what separates a polished product from a polished-looking one.',
+        ]
+      },
+
+      { type: 'insight',
+        label: 'Design Principle',
+        text: 'Flow first. Pixels second. If the flow is wrong, the visual layer is irrelevant.'
+      },
+
+      { type: 'full', src: ProtectionUX, alt: 'Architecture' },
+
+      // ── DESIGN DECISIONS ──
+      { type: 'section-intro',
+        label: 'Key Decision',
+        texts: [
+          'Every screen went through the same question: if an analyst has 10 seconds, what do they need to see first? That question overrode every other design preference. It meant removing elements that felt important to stakeholders but added cognitive load for users.',
+        ]
+      },
+
+      { type: 'full', src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
+      { type: 'full', src: '/assets/deploy-sens.mp4', alt: 'Deploy Sensor' },
+      { type: 'full', src: '/assets/expansion.mp4', alt: 'Expansion', className: 'pd-block-centered' },
+
+      // ── ENGINEERING COLLABORATION ──
+      { type: 'section-intro',
+        label: 'Engineering',
+        texts: [
+          'I worked directly and continuously with the engineering team throughout — not handing off at the end, but designing in close collaboration from the start. That meant understanding technical constraints early and being present through implementation.',
+          'The design system we built together — 120+ components — became the shared language between design and engineering. It reduced ambiguity, accelerated development, and gave the product a visual consistency it had never had before.',
+        ]
+      },
+
+      { type: 'quote', text: 'From source to destination. The protocol speaks. The interface listens.' },
+
+      { type: 'full', src: '/assets/video-integration.mp4', alt: 'Video Integration' },
+
+      // ── INSTALLATION FLOWS ──
+      { type: 'section-intro',
+        label: 'Every Flow',
+        texts: [
+          'The Arc sensor installation was a seven-step process: launch the setup wizard, accept the license agreement, wait for the software to install, connect to a Guardian or Vantage endpoint using a sync token, choose dependencies, select the Arc installation path, and confirm completion. Simple on paper — but the original flow had no clear progress feedback, cryptic error states, and no guidance on where to find the token.',
+          'We redesigned each step to be self-contained and unambiguous. Every screen tells the user exactly what is happening, what they need to do, and what comes next. Error messages were rewritten to be actionable rather than technical. The result: analysts could complete installation independently, without needing to contact support.',
+        ]
+      },
+
+      { type: 'carousel', items: [
+        { src: nozomiInstall1,   alt: 'Step 1 — Setup wizard',        label: '01 — Setup wizard' },
+        { src: nozomiInstall2,   alt: 'Step 2 — License agreement',   label: '02 — License agreement' },
+        { src: nozomiInstall4,   alt: 'Step 3 — Installation',        label: '03 — Installing' },
+        { src: nozomiInstallEnd, alt: 'Step 4 — Complete',            label: '04 — Connected' },
+      ]},
+
+      // ── OUTCOME ──
+      { type: 'insight',
+        label: 'Outcome',
+        text: 'In control, for the first time. Time to first insight dropped from 12 minutes to under 90 seconds. Analyst satisfaction reached 94%.'
+      },
+
+      { type: 'section-intro',
+        label: 'Takeaway',
+        texts: [
+          'That shift — from a platform that demanded effort to one that communicated clearly — was the goal from day one. And it was only possible because we started with research, solved the flow before the UI, and built in partnership with engineering throughout.',
+        ]
+      },
+
+      { type: 'full', src: nozomiSlide, alt: 'Nozomi Slide' },
     ],
     prev: { id: 4, title: 'Rokt' },
     next: { id: 'rtk', title: 'Solidform' },
-  }, 
+  },
   3: {
     title: 'CoStar Group',
     subtitle: 'Finding home should not feel like searching in the dark.',
@@ -134,15 +263,18 @@ const projects = {
     deliverables: ['UX Strategy', 'UI Design', 'Design System', 'Prototyping', 'Handoff'],
     blocks: [
       { type: 'full',     src: telaryHero, alt: 'Telary Hero' },
-      { type: 'headline', text: 'Home is not a filter.' },
-      { type: 'body',     text: 'Not a price range. Not a pin on a map. We redesigned Telary from the ground up — so that searching for a place to live feels as human as the decision itself.' },
+      { type: 'section-intro',
+        label: 'The Brief',
+        texts: [
+          'This project was a collaboration with Ron Design Lab, an award-winning UX/UI studio whose work spans Samsung, Ford, and Huawei. Together we led the end-to-end redesign of the CoStar Group consumer property search experience — combining strategic UX thinking with a high standard of visual craft.',
+        ]
+      },
       { type: 'full',     src: telaryCover03, alt: 'Studio overview' },
       { type: 'grid2', items: [
         { src: telaryCover04, alt: 'Process' },
         { src: telaryCover05, alt: 'Exploration' },
       ]},
       { type: 'quote',    text: 'Every space tells a story. We built the interface to listen.' },
-      { type: 'headline', text: 'Location. Light. Layout.' },
       { type: 'body',     text: 'The things that matter most are rarely the ones in the listing. We brought them to the surface — giving buyers language for what they already felt.' },
       { type: 'grid2', items: [
         { src: telaryScreen1, alt: 'Screen 1' },
@@ -297,6 +429,77 @@ const ProjectDetailPage = () => {
             ))}
           </div>
         );
+      case 'carousel':
+        return <CarouselBlock key={i} items={block.items} />;
+
+      // ── Section intro: label left + text right ──
+      case 'section-intro':
+        return (
+          <div key={i} className="pd-section-intro">
+            <div className="pd-section-intro-label">{block.label}</div>
+            <div className="pd-section-intro-content">
+              {block.texts.map((t, j) => (
+                <p key={j} className="pd-section-intro-text">{t}</p>
+              ))}
+            </div>
+          </div>
+        );
+
+      // ── Insight: dark callout block ──
+      case 'insight':
+        return (
+          <div key={i} className="pd-insight">
+            <div className="pd-insight-inner">
+              <span className="pd-insight-eyebrow">{block.label}</span>
+              <p className="pd-insight-text">{block.text}</p>
+            </div>
+          </div>
+        );
+
+      // ── Stats block ──
+      case 'stats':
+        return (
+          <div key={i} className="pd-stats">
+            <div className="pd-stats-header">
+              <h3 className="pd-stats-label">{block.label}</h3>
+              <p className="pd-stats-description">{block.description}</p>
+            </div>
+            <div className="pd-stats-circles">
+              {block.items.map((item, j) => {
+                const size = 200;
+                const stroke = 14;
+                const r = (size - stroke) / 2;
+                const circ = 2 * Math.PI * r;
+                const pct = item.pct !== undefined ? item.pct : 100;
+                const filled = (pct / 100) * circ;
+                const gradId = `grad-${i}-${j}`;
+                return (
+                  <div key={j} className="pd-stat-circle">
+                    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{display:'block'}}>
+                      <defs>
+                        <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#0033cc" />
+                          <stop offset="100%" stopColor="#3b8bff" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#dde8ff" strokeWidth={stroke} />
+                      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={`url(#${gradId})`} strokeWidth={stroke} strokeLinecap="round" strokeDasharray={`${filled} ${circ}`} transform={`rotate(-90 ${size/2} ${size/2})`} />
+                      <text x={size/2} y={size/2 - 14} textAnchor="middle" dominantBaseline="middle" fill="#0a2fa0" fontFamily="Syne, sans-serif" fontSize="32" fontWeight="800" letterSpacing="-1">{item.value}</text>
+                      {item.label.split(' ').reduce((lines, word) => {
+                        const last = lines[lines.length - 1];
+                        if (last && (last + ' ' + word).length <= 14) { lines[lines.length - 1] = last + ' ' + word; } else { lines.push(word); }
+                        return lines;
+                      }, []).map((line, li) => (
+                        <text key={li} x={size/2} y={size/2 + 18 + li * 16} textAnchor="middle" dominantBaseline="middle" fill="#0a2fa0" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700">{line}</text>
+                      ))}
+                    </svg>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+
       default:
         return null;
     }
