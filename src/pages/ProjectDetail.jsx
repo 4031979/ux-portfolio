@@ -8,6 +8,8 @@ import DropdownNozomi from '../assets/Nozomi-dropdown.png'
 import kiosk01 from '../assets/kiosk-01.png'
 import kiosk02 from '../assets/kiosk-02.png'
 import kiosk03 from '../assets/kiosk-03.png'
+import target01 from '../assets/Target-01.png'
+import target02 from '../assets/Target-02.png'
 import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
 import nozomiInstall1 from '../assets/install-01.png';
 import nozomiInstall2 from '../assets/install-02.png';
@@ -176,6 +178,8 @@ const projects = {
       { type: 'full', src: flowOnBoard, alt: 'Guardian Air onboarding flow' },
 
       { type: 'full', src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
+      { type: 'full', src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
+
       // ── DESIGN APPROACH ──
       { type: 'section-intro',
         label: 'Design Approach',
@@ -203,6 +207,8 @@ const projects = {
       { type: 'full', src: kiosk01, alt: 'Kiosk 01' },
       { type: 'full', src: kiosk02, alt: 'Kiosk 02' },
       { type: 'full', src: kiosk03, alt: 'Kiosk 03' },
+      { type: 'full', src: target01, alt: 'Target 01' },
+      { type: 'full', src: target02, alt: 'Target 02' },
 
       { type: 'full', src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
       { type: 'full', src: '/assets/deploy-sens.mp4', alt: 'Deploy Sensor' },
@@ -256,7 +262,7 @@ const projects = {
   3: {
     title: 'CoStar Group',
     subtitle: 'Finding home should not feel like searching in the dark.',
-    tags: ['Visual Design', 'Real Estate App', 'Branding'],
+    tags: ['UX/UI Design', 'Real Estate App', 'Branding'],
     info: [
       { key: 'Client',   val: 'Telary Studio' },
       { key: 'Year',     val: '2024' },
@@ -279,7 +285,7 @@ const projects = {
         { src: telaryCover04, alt: 'Process' },
         { src: telaryCover05, alt: 'Exploration' },
       ]},
-
+      { type: 'quote',    text: 'Every space tells a story. We built the interface to listen.' },
       { type: 'headline', text: 'Location. Light. Layout.' },
       { type: 'body',     text: 'The things that matter most are rarely the ones in the listing. We brought them to the surface — giving buyers language for what they already felt.' },
       { type: 'grid2', items: [
@@ -290,6 +296,7 @@ const projects = {
         { src: telaryScreen3, alt: 'Screen 3' },
         { src: telaryScreen4, alt: 'Screen 4' },
       ]},
+      { type: 'body',     text: 'Bounce rate dropped by 35% and average session duration doubled after the redesigned experience launched.' },
     ],
     prev: { id: 'rtk', title: 'Solidform' },
     next: { id: 4, title: 'Rokt' },
