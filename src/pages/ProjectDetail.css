@@ -17,6 +17,7 @@
 }
 .pd-back {
   display: inline-block;
+  font-family: 'Syne', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
@@ -29,6 +30,7 @@
 
 .pd-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .pd-tag {
+  font-family: 'Syne', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: var(--text-secondary);
@@ -53,7 +55,7 @@
   font-size: clamp(16px, 2vw, 20px);
   color: var(--text-secondary);
   margin: 0;
-  max-width: 700px;
+  max-width: 720px;
   line-height: 1.7;
   font-weight: 400;
 }
@@ -101,6 +103,7 @@
 
 /* ── Body text ── */
 .pd-body-text {
+  font-family: 'Syne', sans-serif;
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.9;
@@ -214,6 +217,7 @@
 .pd-prevnext-item:hover { opacity: 0.5; }
 .pd-prevnext-next { text-align: right; margin-left: auto; }
 .pd-prevnext-label {
+  font-family: 'Syne', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -256,6 +260,7 @@
   text-transform: uppercase;
 }
 .pd-stats-description {
+  font-family: 'Syne', sans-serif;
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.85;
@@ -336,6 +341,7 @@
 }
 
 .pd-section-intro-label {
+  font-family: 'Syne', sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -355,7 +361,8 @@
 }
 
 .pd-section-intro-text {
-  font-size: 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.85;
   font-weight: 400;
@@ -377,6 +384,7 @@
 }
 
 .pd-insight-eyebrow {
+  font-family: 'Syne', sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -475,6 +483,7 @@
 }
 
 .pd-carousel-label {
+  font-family: 'Syne', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;

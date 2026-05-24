@@ -5,6 +5,9 @@ import ProtectionUX from '../assets/Nozomi-UX-3.png'
 import flowOnBoard from '../assets/flow-onBoard.png'
 import DetailPage from '../assets/process-03.png'
 import DropdownNozomi from '../assets/Nozomi-dropdown.png'
+import kiosk01 from '../assets/kiosk-01.png'
+import kiosk02 from '../assets/kiosk-02.png'
+import kiosk03 from '../assets/kiosk-03.png'
 import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
 import nozomiInstall1 from '../assets/install-01.png';
 import nozomiInstall2 from '../assets/install-02.png';
@@ -173,8 +176,6 @@ const projects = {
       { type: 'full', src: flowOnBoard, alt: 'Guardian Air onboarding flow' },
 
       { type: 'full', src: '/assets/Nozomi-02-hero.mp4', alt: 'Dashboard overview' },
-      { type: 'full', src: '/assets/Nozomi-UX-04.mp4', alt: 'Hero' },
-
       // ── DESIGN APPROACH ──
       { type: 'section-intro',
         label: 'Design Approach',
@@ -198,6 +199,10 @@ const projects = {
           'Every screen went through the same question: if an analyst has 10 seconds, what do they need to see first? That question overrode every other design preference. It meant removing elements that felt important to stakeholders but added cognitive load for users.',
         ]
       },
+
+      { type: 'full', src: kiosk01, alt: 'Kiosk 01' },
+      { type: 'full', src: kiosk02, alt: 'Kiosk 02' },
+      { type: 'full', src: kiosk03, alt: 'Kiosk 03' },
 
       { type: 'full', src: DropdownNozomi, alt: 'Data charts', className: 'pd-block-padded' },
       { type: 'full', src: '/assets/deploy-sens.mp4', alt: 'Deploy Sensor' },
@@ -225,12 +230,10 @@ const projects = {
         ]
       },
 
-      { type: 'carousel', items: [
-        { src: nozomiInstall1,   alt: 'Step 1 — Setup wizard',        label: '01 — Setup wizard' },
-        { src: nozomiInstall2,   alt: 'Step 2 — License agreement',   label: '02 — License agreement' },
-        { src: nozomiInstall4,   alt: 'Step 3 — Installation',        label: '03 — Installing' },
-        { src: nozomiInstallEnd, alt: 'Step 4 — Complete',            label: '04 — Connected' },
-      ]},
+      { type: 'full', src: nozomiInstall1,   alt: 'Installation step 1' },
+      { type: 'full', src: nozomiInstall2,   alt: 'Installation step 2' },
+      { type: 'full', src: nozomiInstall4,   alt: 'Installation step 3' },
+      { type: 'full', src: nozomiInstallEnd, alt: 'Installation step 4' },
 
       // ── OUTCOME ──
       { type: 'insight',
@@ -253,7 +256,7 @@ const projects = {
   3: {
     title: 'CoStar Group',
     subtitle: 'Finding home should not feel like searching in the dark.',
-    tags: ['UX/UI Design', 'Real Estate App', 'Branding'],
+    tags: ['Visual Design', 'Real Estate App', 'Branding'],
     info: [
       { key: 'Client',   val: 'Telary Studio' },
       { key: 'Year',     val: '2024' },
@@ -269,12 +272,15 @@ const projects = {
           'This project was a collaboration with Ron Design Lab, an award-winning UX/UI studio whose work spans Samsung, Ford, and Huawei. Together we led the end-to-end redesign of the CoStar Group consumer property search experience — combining strategic UX thinking with a high standard of visual craft.',
         ]
       },
+      { type: 'headline', text: 'Home is not a filter.' },
+      { type: 'body',     text: 'Not a price range. Not a pin on a map. We redesigned Telary from the ground up — so that searching for a place to live feels as human as the decision itself.' },
       { type: 'full',     src: telaryCover03, alt: 'Studio overview' },
       { type: 'grid2', items: [
         { src: telaryCover04, alt: 'Process' },
         { src: telaryCover05, alt: 'Exploration' },
       ]},
-      { type: 'quote',    text: 'Every space tells a story. We built the interface to listen.' },
+
+      { type: 'headline', text: 'Location. Light. Layout.' },
       { type: 'body',     text: 'The things that matter most are rarely the ones in the listing. We brought them to the surface — giving buyers language for what they already felt.' },
       { type: 'grid2', items: [
         { src: telaryScreen1, alt: 'Screen 1' },
@@ -284,7 +290,6 @@ const projects = {
         { src: telaryScreen3, alt: 'Screen 3' },
         { src: telaryScreen4, alt: 'Screen 4' },
       ]},
-      { type: 'body',     text: 'Bounce rate dropped by 35% and average session duration doubled after the redesigned experience launched.' },
     ],
     prev: { id: 'rtk', title: 'Solidform' },
     next: { id: 4, title: 'Rokt' },
@@ -340,7 +345,7 @@ const projects = {
     blocks: [
       { type: 'full',     src: rtkCoverSolid, alt: 'Solidform Cover' },
       { type: 'headline', text: 'Precision, layer by layer.' },
-      { type: 'body',     text: 'Solidform is a 3D printing production provider operating at industrial scale. The challenge: a technology built on precision had a digital experience that felt anything but. We were brought in to close that gap — designing an interface as exact as the processes it controls.' },
+      { type: 'body',     text: <>Solidform is a 3D printing production provider operating at industrial scale. <strong>The challenge:</strong> a technology built on precision had a digital experience that felt anything but. We were brought in to close that gap — designing an interface as exact as the processes it controls.</> },
       { type: 'full',     src: rtkQuote1, alt: 'Solidform Hero' },
       { type: 'headline', text: 'Built to perform.' },
       { type: 'body',     text: 'Solidform needed a digital presence as sharp as the technology behind it. We stripped everything back — and rebuilt from first principles.' },
