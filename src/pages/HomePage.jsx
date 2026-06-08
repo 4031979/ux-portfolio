@@ -25,11 +25,13 @@ const HomePage = () => {
       </section>
 
       {/* 3. Portfolio Grid */}
+      
       <section className="hc-work-grid">
-      <ProjectCard title="Nozomi Networks" category="UX/UI Design" link="/work/2" image={nozomicover} />
+
         <ProjectCard title="CoStar Group" category="Visual Design" link="/work/3" image={telarycover} />
         <ProjectCard title="Rokt" category="UX Design" link="/work/4" image={hanglagecover} />
       </section>
+
     </div>
   );
 };
