@@ -56,19 +56,3 @@ export default HomePage;
 
 
 
-
-
-// import ProtectionUX from '../assets/Nozomi-UX-3.png'
-// import flowOnBoard from '../assets/flow-onBoard.png'
-// import DetailPage from '../assets/process-03.png'
-// import PlanConfig from '../assets/Plan-config.png'
-// import kiosk01 from '../assets/kiosk-01.png'
-// import kiosk02 from '../assets/kiosk-02.png'
-// import kiosk03 from '../assets/kiosk-03.png'
-// import target01 from '../assets/Target-01.png'
-// import target02 from '../assets/Target-02.png'
-// import nozomiSlide from '../assets/Slide-16_9-25-min.jpg';
-// import nozomiInstall1 from '../assets/install-01.png';
-// import nozomiInstall2 from '../assets/install-02.png';
-// import nozomiInstall4 from '../assets/install-04.png';
-// import nozomiInstallEnd from '../assets/install-end.png';
